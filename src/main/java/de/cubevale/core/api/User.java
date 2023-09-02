@@ -102,26 +102,77 @@ public interface User {
      */
     void removeExperience(int points);
 
+    /**
+     * Check if the user has a specific permission
+     * @param permission
+     * @return
+     */
     boolean hasPermission(String permission);
 
+    /**
+     * Add a specific permission to the user
+     * @param permission
+     */
     void addPermission(String permission);
 
+    /**
+     * Remove a specific permission from the user
+     * @param permission
+     */
     void removePermission(String permission);
 
+    /**
+     * Check if the user is banned
+     * @return
+     */
     boolean isBanned();
 
+    /**
+     * Create a ban for the user
+     * @param reason
+     * @param staff
+     * @param until
+     * @return
+     */
     boolean createBan(String reason, User staff, long until);
 
+    /**
+     * Disable a ban from the user
+     * @param staff
+     * @return
+     */
     boolean disableBan(User staff);
 
+    /**
+     * Delete a ban from the user
+     * @param banId
+     * @return
+     */
     boolean deleteBan(int banId);
 
+    /**
+     * Get the active user ban
+     * @return
+     */
     Ban getActiveBan();
 
+    /**
+     * Set the active user ban
+     * @param ban
+     */
     void setActiveBan(Ban ban);
 
+    /**
+     * Get all bans from the user
+     * @return
+     */
     List<Ban> getBans();
 
+    /**
+     * Kick the user from the server
+     * @param reason
+     * @param staff
+     */
     void kick(String reason, User staff);
 
     /**
@@ -153,5 +204,9 @@ public interface User {
      */
     List<BankAccount> getAvailableBankAccounts();
 
+    /**
+     * Get all regions from the user
+     * @return
+     */
     Region getRegions();
 }
