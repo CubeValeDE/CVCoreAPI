@@ -22,13 +22,33 @@ public interface Hotline {
      */
     void setNumber(String number);
 
+    /**
+     * Get the online phones linked to the hotline
+     * @return
+     */
     List<Phone> getAvailablePhones();
 
+    /**
+     * Link a phone to the hotline
+     * @param phone
+     */
     void addPhone(Phone phone);
 
+    /**
+     * Unlink a phone from the hotline
+     * @param phone
+     */
     void removePhone(Phone phone);
 
+    /**
+     * Get the hotline's incoming call
+     * @return
+     */
     Call getCall();
 
+    /**
+     * Set the hotline's incoming call
+     * @param call
+     */
     void setCall(Call call);
 }
