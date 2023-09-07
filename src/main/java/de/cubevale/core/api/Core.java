@@ -19,6 +19,7 @@ public interface Core {
     User getUser(UUID uuid);
 
     Phone getPhone(int id);
+
     Phone getPhone(String number);
 
     Phone getPhone(User user);
