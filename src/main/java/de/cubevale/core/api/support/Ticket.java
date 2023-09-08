@@ -1,6 +1,6 @@
 package de.cubevale.core.api.support;
 
-import de.cubevale.core.api.User;
+import de.cubevale.core.api.user.User;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package de.cubevale.core.api.economy;
 
-import de.cubevale.core.api.User;
+import de.cubevale.core.api.user.User;
 
 public interface BankAccount {
 

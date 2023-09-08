@@ -1,6 +1,6 @@
 package de.cubevale.core.api.events;
 
-import de.cubevale.core.api.User;
+import de.cubevale.core.api.user.User;
 import de.cubevale.core.api.event.Event;
 import de.cubevale.core.api.moderation.Warn;
 
