@@ -5,6 +5,7 @@ import de.cubevale.core.api.command.Command;
 import de.cubevale.core.api.economy.BankAccount;
 import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.phone.Phone;
+import de.cubevale.core.api.user.User;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
