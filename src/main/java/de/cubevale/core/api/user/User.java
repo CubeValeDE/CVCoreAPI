@@ -2,7 +2,6 @@ package de.cubevale.core.api.user;
 
 import de.cubevale.core.api.economy.BankAccount;
 import de.cubevale.core.api.enums.Group;
-import de.cubevale.core.api.moderation.Ban;
 import de.cubevale.core.api.phone.Phone;
 import de.cubevale.core.api.region.Region;
 import de.cubevale.core.api.enums.MessageType;
@@ -148,52 +147,18 @@ public interface User {
     boolean isBanned();
 
     /**
-     * Create a ban for the user
+     * Ban the user from the server
      * @param reason
-     * @param staff
      * @param until
      * @return
      */
-    boolean createBan(String reason, User staff, long until);
-
-    /**
-     * Disable a ban from the user
-     * @param staff
-     * @return
-     */
-    boolean disableBan(User staff);
-
-    /**
-     * Delete a ban from the user
-     * @param banId
-     * @return
-     */
-    boolean deleteBan(int banId);
-
-    /**
-     * Get the active user ban
-     * @return
-     */
-    Ban getActiveBan();
-
-    /**
-     * Set the active user ban
-     * @param ban
-     */
-    void setActiveBan(Ban ban);
-
-    /**
-     * Get all bans from the user
-     * @return
-     */
-    List<Ban> getBans();
+    boolean createBan(String reason, long until);
 
     /**
      * Kick the user from the server
      * @param reason
-     * @param staff
      */
-    void kick(String reason, User staff);
+    void kick(String reason);
 
     /**
      * Get the user's phone
