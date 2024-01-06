@@ -2,6 +2,8 @@ package de.cubevale.core.api.phone;
 
 import de.cubevale.core.api.user.User;
 
+import javax.annotation.CheckReturnValue;
+
 public interface Phone {
 
     /**
@@ -20,7 +22,10 @@ public interface Phone {
      * Set the phone number
      * @param number
      */
-    void setNumber(String number);
+    @CheckReturnValue
+    default Phone setNumber(String number) {
+        return this;
+    }
 
     /**
      * Get the phone owner
@@ -29,20 +34,18 @@ public interface Phone {
     User getOwner();
 
     /**
-     * Activate the phone
-     */
-    void activate();
-
-    /**
-     * Deactivate the phone
-     */
-    void deactivate();
-
-    /**
-     * Check if the phone is activated
+     * Check if the phone is active
      * @return
      */
-    boolean isActivated();
+    boolean isActive();
+
+    /**
+     * Set the phone active status
+     */
+    @CheckReturnValue
+    default Phone setActive(boolean active) {
+        return this;
+    }
 
     /**
      * Get the running call
@@ -73,4 +76,6 @@ public interface Phone {
      * @return
      */
     boolean isInCall();
+
+    void update();
 }
