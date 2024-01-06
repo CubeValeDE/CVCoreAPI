@@ -2,6 +2,7 @@ package de.cubevale.core.api;
 
 import de.cubevale.core.api.business.Company;
 import de.cubevale.core.api.economy.BankAccount;
+import de.cubevale.core.api.economy.BankAccountType;
 import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.command.Command;
 import de.cubevale.core.api.phone.Phone;
@@ -31,7 +32,7 @@ public interface Core {
 
     void createPhone(User owner);
 
-    void createBankAccount(User owner);
+    void createBankAccount(User owner, BankAccountType accountType);
 
     void createBankAccount(Company owner);
 
