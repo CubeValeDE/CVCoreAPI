@@ -3,6 +3,7 @@ package de.cubevale.core.api;
 import de.cubevale.core.api.business.Company;
 import de.cubevale.core.api.command.Command;
 import de.cubevale.core.api.economy.BankAccount;
+import de.cubevale.core.api.economy.BankAccountType;
 import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.phone.Phone;
 import de.cubevale.core.api.user.User;
@@ -55,8 +56,8 @@ public final class CubeVale {
         core.createPhone(owner);
     }
 
-    public static void createBankAccount(User owner) {
-        core.createBankAccount(owner);
+    public static void createBankAccount(User owner, BankAccountType accountType) {
+        core.createBankAccount(owner, accountType);
     }
 
     public static void createBankAccount(Company owner) {

@@ -85,8 +85,6 @@ public class TimeUtils {
         return System.currentTimeMillis();
     }
 
-
-
     public static String getFormattedTime(long timeMillis) {
         Instant instant = Instant.ofEpochMilli(timeMillis);
         LocalDateTime localDateTime = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();

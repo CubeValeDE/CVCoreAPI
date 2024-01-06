@@ -6,4 +6,4 @@ Developers mainly use this API to work with our systems because the functions of
 This is not the official CubeValeAPI for end users.
 This is the internal CubeValeDE Core API, which can only be used by CubeValeDE developers.
 
-© 2023 CubeValeDE
+© 2024 CubeValeDE
