@@ -1,12 +1,12 @@
 package de.cubevale.core.api.user;
 
 import de.cubevale.core.api.economy.BankAccount;
-import de.cubevale.core.api.enums.Group;
 import de.cubevale.core.api.phone.Phone;
 import de.cubevale.core.api.region.Region;
 import de.cubevale.core.api.enums.MessageType;
 import org.bukkit.Location;
 
+import javax.annotation.CheckReturnValue;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,6 +31,21 @@ public interface User {
     String getName();
 
     /**
+     * Get the number of server logins
+     * @return
+     */
+    int getLogins();
+
+    /**
+     * Set the number of server logins
+     * @param logins
+     */
+    @CheckReturnValue
+    default User setLogins(int logins) {
+        return this;
+    }
+
+    /**
      * Get the first login timestamp
      * @return
      */
@@ -46,7 +61,10 @@ public interface User {
      * Set the last logout timestamp
      * @param time
      */
-    void setLastLogout(long time);
+    @CheckReturnValue
+    default User setLastLogout(long time) {
+     return this;
+    }
 
     /**
      * Get the location of the user
@@ -79,28 +97,26 @@ public interface User {
     void sendActionBar(MessageType messageType, String message);
 
     /**
+     * Check if the user is online
+     * @return
+     */
+    boolean isOnline();
+
+    /**
      * Get the experience points of the user
      * @return
      */
+
     int getExperience();
 
     /**
      * Set the experience points of the user
      * @param points
      */
-    void setExperience(int points);
-
-    /**
-     * Add experience points to the user
-     * @param points
-     */
-    void addExperience(int points);
-
-    /**
-     * Remove experience points from the user
-     * @param points
-     */
-    void removeExperience(int points);
+    @CheckReturnValue
+    default User setExperience(int points) {
+        return this;
+    }
 
     /**
      * Check if the user has a specific permission
@@ -113,37 +129,25 @@ public interface User {
      * Add a specific permission to the user
      * @param permission
      */
-    void addPermission(String permission);
+    @CheckReturnValue
+    default User setPermission(String permission) {
+        return this;
+    }
 
     /**
      * Remove a specific permission from the user
      * @param permission
      */
-    void removePermission(String permission);
-
-    /**
-     * Check if is user in group
-     * @param group
-     * @return
-     */
-    boolean isInGroup(Group group);
-
-    /**
-     * Add a group to the user
-     * @param group
-     */
-    void addGroup(Group group);
-
-    /**
-     * Remove a group from the user
-     * @param group
-     */
-    void removeGroup(Group group);
+    @CheckReturnValue
+    default User removePermission(String permission) {
+        return this;
+    }
 
     /**
      * Check if the user is banned
      * @return
      */
+    @CheckReturnValue
     boolean isBanned();
 
     /**
@@ -152,7 +156,10 @@ public interface User {
      * @param until
      * @return
      */
-    boolean createBan(String reason, long until);
+    @CheckReturnValue
+    default User createBan(String reason, long until) {
+        return this;
+    }
 
     /**
      * Kick the user from the server
@@ -175,7 +182,10 @@ public interface User {
     /**
      * Set the user's cash
      */
-    void setCash(Double amount);
+    @CheckReturnValue
+    default User setCash(Double amount) {
+        return this;
+    }
 
     /**
      * Get the user's primary bank account
@@ -194,4 +204,13 @@ public interface User {
      * @return
      */
     Region getRegions();
+
+    UUID getChatInputId();
+
+    @CheckReturnValue
+    default User createChatInputId() {
+        return this;
+    }
+
+    void update();
 }
