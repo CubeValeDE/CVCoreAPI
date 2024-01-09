@@ -8,18 +8,18 @@ import java.util.Map;
 public abstract class MenuHolder {
 
     private final Inventory inventory;
-    private final Map<Integer, MenuButton> buttons;
+    private final Map<Integer, ItemButton> buttons;
 
     public MenuHolder(Inventory inventory) {
         this.inventory = inventory;
         this.buttons = new HashMap<>();
     }
 
-    public void setButton(int slot, MenuButton button) {
+    public void setButton(int slot, ItemButton button) {
         this.buttons.put(slot, button);
     }
 
-    public MenuButton getButton(int slot) {
+    public ItemButton getButton(int slot) {
         if (slot < 0 || slot >= buttons.size()) return null;
 
         return buttons.get(slot);
@@ -31,5 +31,9 @@ public abstract class MenuHolder {
 
     public void clearButtons() {
         this.buttons.clear();
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 }
