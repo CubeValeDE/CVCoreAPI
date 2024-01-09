@@ -24,8 +24,6 @@ public interface ItemBuilder {
 
     ItemBuilder addLore(String line);
 
-    ItemBuilder unbreakable();
-
     ItemBuilder unbreakable(boolean unbreakable);
 
     ItemBuilder customModelData(Integer customModelData);
