@@ -7,7 +7,10 @@ import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.command.Command;
 import de.cubevale.core.api.phone.Phone;
 import de.cubevale.core.api.user.User;
+import de.cubevale.core.api.utils.gui.MenuHolder;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.UUID;
@@ -39,6 +42,16 @@ public interface Core {
     Company getCompany(int id);
 
     void createCompany(String name, User owner);
+
+    Inventory createInventory(int size);
+
+    Inventory createInventory(int size, String title);
+
+    Inventory createInventory(InventoryType inventoryType);
+
+    Inventory createInventory(InventoryType type, String title);
+
+    void registerMenuHolder(MenuHolder menuHolder);
 
     void registerCommand(Command command);
 

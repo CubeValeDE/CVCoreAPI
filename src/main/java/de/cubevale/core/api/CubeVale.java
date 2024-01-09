@@ -7,7 +7,10 @@ import de.cubevale.core.api.economy.BankAccountType;
 import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.phone.Phone;
 import de.cubevale.core.api.user.User;
+import de.cubevale.core.api.utils.gui.MenuHolder;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.UUID;
@@ -70,6 +73,26 @@ public final class CubeVale {
 
     public static void createCompany(String name, User owner) {
         core.createCompany(name, owner);
+    }
+
+    public static Inventory createInventory(int size) {
+        return core.createInventory(size);
+    }
+
+    public static Inventory createInventory(int size, String title) {
+        return core.createInventory(size, title);
+    }
+
+    public static Inventory createInventory(InventoryType inventoryType) {
+        return core.createInventory(inventoryType);
+    }
+
+    public static Inventory createInventory(InventoryType type, String title) {
+        return core.createInventory(type, title);
+    }
+
+    public static void registerMenuHolder(MenuHolder menuHolder) {
+        core.registerMenuHolder(menuHolder);
     }
 
     public static void registerCommand(Command command) {
