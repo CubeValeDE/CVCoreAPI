@@ -7,9 +7,12 @@ import de.cubevale.core.api.economy.BankAccountType;
 import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.phone.Phone;
 import de.cubevale.core.api.user.User;
+import de.cubevale.core.api.utils.ItemBuilder;
+import org.bukkit.Material;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.UUID;
@@ -72,6 +75,14 @@ public final class CubeVale {
 
     public static void createCompany(String name, User owner) {
         core.createCompany(name, owner);
+    }
+
+    public static ItemBuilder createItem(Material material) {
+        return core.createItem(material);
+    }
+
+    public static ItemBuilder createItem(ItemStack itemStack) {
+        return core.createItem(itemStack);
     }
 
     public static Inventory createInventory(int size) {
