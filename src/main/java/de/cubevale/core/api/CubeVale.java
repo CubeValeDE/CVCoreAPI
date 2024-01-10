@@ -116,4 +116,8 @@ public final class CubeVale {
     public static JavaPlugin getPluginInstance() {
         return core.getPluginInstance();
     }
+
+    public static Core getCore() {
+        return core.getCore();
+    }
 }

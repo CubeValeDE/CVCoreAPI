@@ -64,4 +64,6 @@ public interface Core {
     void registerBukkitListener(Listener listener);
 
     JavaPlugin getPluginInstance();
+
+    Core getCore();
 }
