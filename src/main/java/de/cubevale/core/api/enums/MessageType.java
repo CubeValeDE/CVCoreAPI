@@ -2,8 +2,8 @@ package de.cubevale.core.api.enums;
 
 public enum MessageType {
     SUCCESS,
-    ERROR(),
-    WARNING(),
-    INFO(),
-    DEFAULT();
+    ERROR,
+    WARNING,
+    INFO,
+    DEFAULT
 }
