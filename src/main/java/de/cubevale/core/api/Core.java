@@ -7,7 +7,6 @@ import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.command.Command;
 import de.cubevale.core.api.phone.Phone;
 import de.cubevale.core.api.user.User;
-import de.cubevale.core.api.utils.gui.MenuHolder;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
@@ -49,9 +48,7 @@ public interface Core {
 
     Inventory createInventory(InventoryType inventoryType);
 
-    Inventory createInventory(InventoryType type, String title);
-
-    void registerMenuHolder(MenuHolder menuHolder);
+    Inventory createInventory(InventoryType inventoryType, String title);
 
     void registerCommand(Command command);
 

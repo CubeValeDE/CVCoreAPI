@@ -7,7 +7,6 @@ import de.cubevale.core.api.economy.BankAccountType;
 import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.phone.Phone;
 import de.cubevale.core.api.user.User;
-import de.cubevale.core.api.utils.gui.MenuHolder;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
@@ -87,12 +86,8 @@ public final class CubeVale {
         return core.createInventory(inventoryType);
     }
 
-    public static Inventory createInventory(InventoryType type, String title) {
-        return core.createInventory(type, title);
-    }
-
-    public static void registerMenuHolder(MenuHolder menuHolder) {
-        core.registerMenuHolder(menuHolder);
+    public static Inventory createInventory(InventoryType inventoryType, String title) {
+        return core.createInventory(inventoryType, title);
     }
 
     public static void registerCommand(Command command) {
