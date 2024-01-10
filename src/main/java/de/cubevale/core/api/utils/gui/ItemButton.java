@@ -4,7 +4,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class ItemButton implements MenuButton {
 
-    private final ItemStack itemStack;
+    private ItemStack itemStack;
 
     public ItemButton(ItemStack itemStack) {
         this.itemStack = itemStack;
@@ -12,5 +12,9 @@ public class ItemButton implements MenuButton {
 
     public ItemStack getItemStack() {
         return itemStack;
+    }
+
+    public void setItemStack(ItemStack itemStack) {
+        this.itemStack = itemStack;
     }
 }
