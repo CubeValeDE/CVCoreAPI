@@ -1,4 +1,4 @@
-package de.cubevale.core.api.phone;
+package de.cubevale.core.api.phone.app;
 
 import de.cubevale.core.api.user.User;
 

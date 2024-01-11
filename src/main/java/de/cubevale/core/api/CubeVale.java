@@ -2,10 +2,12 @@ package de.cubevale.core.api;
 
 import de.cubevale.core.api.business.Company;
 import de.cubevale.core.api.command.Command;
+import de.cubevale.core.api.database.Database;
 import de.cubevale.core.api.economy.BankAccount;
 import de.cubevale.core.api.economy.BankAccountType;
 import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.phone.Phone;
+import de.cubevale.core.api.user.OfflineUser;
 import de.cubevale.core.api.user.User;
 import de.cubevale.core.api.utils.ItemBuilder;
 import org.bukkit.Material;
@@ -29,12 +31,24 @@ public final class CubeVale {
         return core.getUser(id);
     }
 
+    public static User getUser(UUID uuid) {
+        return core.getUser(uuid);
+    }
+
     public static User getUser(String name) {
         return core.getUser(name);
     }
 
-    public static User getUser(UUID uuid) {
-        return core.getUser(uuid);
+    public static OfflineUser getOfflineUser(int id) {
+        return core.getOfflineUser(id);
+    }
+
+    public static OfflineUser getOfflineUser(UUID uuid) {
+        return core.getOfflineUser(uuid);
+    }
+
+    public static OfflineUser getOfflineUser(String name) {
+        return core.getOfflineUser(name);
     }
 
     public static Phone getPhone(int id) {
@@ -109,8 +123,12 @@ public final class CubeVale {
         core.registerListener(eventListener);
     }
 
-    public static void registerEventListener(Listener listener) {
+    public static void registerBukkitListener(Listener listener) {
         core.registerBukkitListener(listener);
+    }
+
+    public static Database getDatabase() {
+        return core.getDatabase();
     }
 
     public static JavaPlugin getPluginInstance() {
