@@ -2,6 +2,7 @@ package de.cubevale.core.api.command;
 
 import de.cubevale.core.api.user.User;
 
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Command {
@@ -14,6 +15,11 @@ public abstract class Command {
     }
 
     public abstract boolean onCommand(User sender, String[] args);
+
+    public List<String> onTabComplete(User sender, String[] args) {
+        // Tab complete logic
+        return null;
+    }
 
     public CommandOptions getCommandOptions() {
         return commandOptions;
