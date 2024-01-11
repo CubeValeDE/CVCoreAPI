@@ -30,6 +30,12 @@ public interface OfflineUser {
     String getName();
 
     /**
+     * Check if the user is online
+     * @return
+     */
+    boolean isOnline();
+
+    /**
      * Get the number of server logins
      * @return
      */
