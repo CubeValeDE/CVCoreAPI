@@ -91,6 +91,22 @@ public final class CubeVale {
         core.createCompany(name, owner);
     }
 
+    public static String getServerDescription() {
+        return core.getServerDescription();
+    }
+
+    public static void setServerDescription(String description1, String description2) {
+        core.setServerDescription(description1, description2);
+    }
+
+    public static boolean isMaintenance() {
+        return core.isMaintenance();
+    }
+
+    public static void setMaintenance(boolean maintenance) {
+        core.setMaintenance(maintenance);
+    }
+
     public static ItemBuilder createItem(Material material) {
         return core.createItem(material);
     }

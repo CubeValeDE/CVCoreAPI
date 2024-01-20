@@ -1,5 +1,7 @@
 package de.cubevale.core.api.phone;
 
+import de.cubevale.core.api.phone.app.Call;
+
 import java.util.List;
 
 public interface Hotline {

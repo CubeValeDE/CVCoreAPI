@@ -54,6 +54,14 @@ public interface Core {
 
     void createCompany(String name, User owner);
 
+    String getServerDescription();
+
+    void setServerDescription(String description1, String description2);
+
+    boolean isMaintenance();
+
+    void setMaintenance(boolean maintenance);
+
     ItemBuilder createItem(Material material);
 
     ItemBuilder createItem(ItemStack itemStack);

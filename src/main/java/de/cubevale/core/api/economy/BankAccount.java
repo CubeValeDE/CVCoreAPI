@@ -3,40 +3,42 @@ package de.cubevale.core.api.economy;
 import de.cubevale.core.api.user.User;
 
 import javax.annotation.CheckReturnValue;
+import java.util.List;
 
 public interface BankAccount {
 
     /**
      * Get the account id
-     * @return
+     * @return id as integer
      */
     int getId();
 
     /**
      * Get the account type
-     * @return
+     * @return bankAccountType enum
      */
     BankAccountType getType();
 
     /**
      * Set the account type
-     * @param type
+     * @param accountType bankAccountType enum
      * @return
      */
     @CheckReturnValue
-    default BankAccount setType(BankAccountType type) {
+    default BankAccount setType(BankAccountType accountType) {
         return this;
     }
 
     /**
      * Get the account iban
-     * @return
+     * @return iban as string
      */
     String getIban();
 
     /**
      * Set the account iban
-     * @param iban
+     * @param iban iban as string
+     * @return
      */
     @CheckReturnValue
     default BankAccount setIban(String iban) {
@@ -45,49 +47,49 @@ public interface BankAccount {
 
     /**
      * Get the user account owner
-     * @return
+     * @return account owner as user instance
      */
     User getOwner();
 
     /**
      * Set the user account owner
-     * @param user
+     * @param owner owner as user instance
      */
     @CheckReturnValue
-    default BankAccount setOwner(User user) {
+    default BankAccount setOwner(User owner) {
         return this;
     }
 
     /**
      * Get the account balance
-     * @return
+     * @return balance as double
      */
     Double getBalance();
 
     /**
      * Set the account balance
-     * @param amount
+     * @param balance account balance as double
      */
     @CheckReturnValue
-    default BankAccount setBalance(Double amount) {
+    default BankAccount setBalance(Double balance) {
         return this;
     }
 
     /**
      * Get the time the account was created
-     * @return
+     * @return creation time as long millis
      */
     long getCreationTime();
 
     /**
      * Check if the bank account is blocked
-     * @return
+     * @return block status as boolean
      */
     boolean isBlocked();
 
     /**
      * Set the blocking status of the bank account
-     * @param blocked
+     * @param blocked as boolean
      * @return
      */
     @CheckReturnValue
@@ -96,14 +98,53 @@ public interface BankAccount {
     }
 
     /**
+     * Get all account users who have access to the account
+     * @return
+     */
+    List<AccountUser> getAccountUsers();
+
+    /**
+     * Add an account user to accessing the account
+     * @param accountUser account user instance
+     * @return
+     */
+    @CheckReturnValue
+    default BankAccount addAccountUser(AccountUser accountUser) {
+        return this;
+    }
+
+    /**
+     * Remove an account user from accessing the account
+     * @param accountUser account user instance
+     * @return
+     */
+    @CheckReturnValue
+    default BankAccount removeAccountUser(AccountUser accountUser) {
+        return this;
+    }
+
+    /**
      * Transfer money to another account
-     * @param target
-     * @param amount
-     * @param reason
+     * @param target bank account instance
+     * @param amount amount as double
+     * @param reason reason as string
      * @return
      */
     @CheckReturnValue
     default BankAccount transfer(BankAccount target, Double amount, String reason) {
+        return this;
+    }
+
+    /**
+     * Transfer money to another account by account user
+     * @param target bank account instance
+     * @param amount amount as double
+     * @param reason reason as string
+     * @param accountUser account user instance
+     * @return
+     */
+    @CheckReturnValue
+    default BankAccount transfer(BankAccount target, Double amount, String reason, AccountUser accountUser) {
         return this;
     }
 
