@@ -42,7 +42,7 @@ public interface OfflineUser {
 
     /**
      * Set the number of server logins
-     * @param logins as long
+     * @param logins logins as long
      * @return
      */
     @CheckReturnValue
@@ -64,7 +64,7 @@ public interface OfflineUser {
 
     /**
      * Set the last logout timestamp
-     * @param lastLogout as long millis
+     * @param lastLogout time as long millis
      * @return
      */
     @CheckReturnValue
@@ -80,7 +80,7 @@ public interface OfflineUser {
 
     /**
      * Set the experience points of the user
-     * @param points as integer
+     * @param points experience points as integer
      */
     @CheckReturnValue
     default OfflineUser setExperience(int points) {
@@ -89,14 +89,14 @@ public interface OfflineUser {
 
     /**
      * Check if the user has a specific permission
-     * @param permission as string
+     * @param permission permission name as string
      * @return
      */
     boolean hasPermission(String permission);
 
     /**
      * Add a specific permission to the user
-     * @param permission as string
+     * @param permission permission name as string
      */
     @CheckReturnValue
     default OfflineUser setPermission(String permission) {
@@ -105,7 +105,7 @@ public interface OfflineUser {
 
     /**
      * Remove a specific permission from the user
-     * @param permission as string
+     * @param permission permission name as string
      */
     @CheckReturnValue
     default OfflineUser removePermission(String permission) {
@@ -114,21 +114,21 @@ public interface OfflineUser {
 
     /**
      * Check if the user is in group with name
-     * @param groupName as string
+     * @param groupName group name as string
      * @return
      */
     boolean isInGroup(String groupName);
 
     /**
      * Check if the user is in group with id
-     * @param groupId as integer
+     * @param groupId group id as integer
      * @return
      */
     boolean isInGroup(int groupId);
 
     /**
      * Add the user to a specific group by group name
-     * @param groupName as string
+     * @param groupName group name as string
      * @return
      */
     @CheckReturnValue
@@ -138,7 +138,7 @@ public interface OfflineUser {
 
     /**
      * Remove the user from a specific group by group name
-     * @param groupName as string
+     * @param groupName group name as string
      * @return
      */
     @CheckReturnValue
@@ -154,8 +154,8 @@ public interface OfflineUser {
 
     /**
      * Ban the user from the server
-     * @param reason as string
-     * @param untilTime as long millis
+     * @param reason ban reason as string
+     * @param untilTime time as long millis
      * @return
      */
     @CheckReturnValue
@@ -165,9 +165,9 @@ public interface OfflineUser {
 
     /**
      * Ban the user from the server by staff member
-     * @param reason as string
-     * @param untilTime as long millis
-     * @param staffMember as user
+     * @param reason ban reason as string
+     * @param untilTime time as long millis
+     * @param staffMember staff member as user
      * @return
      */
     @CheckReturnValue

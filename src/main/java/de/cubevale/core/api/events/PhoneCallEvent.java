@@ -2,7 +2,7 @@ package de.cubevale.core.api.events;
 
 import de.cubevale.core.api.user.User;
 import de.cubevale.core.api.event.Event;
-import de.cubevale.core.api.phone.Call;
+import de.cubevale.core.api.phone.app.Call;
 
 public class PhoneCallEvent extends Event {
 

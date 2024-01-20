@@ -16,27 +16,27 @@ public interface User extends OfflineUser {
 
     /**
      * Teleport user to another user
-     * @param target user
+     * @param targetUser target user
      */
-    void teleport(User target);
+    void teleport(User targetUser);
 
     /**
      * Teleport user to a location
-     * @param location target
+     * @param location target location
      */
     void teleport(Location location);
 
     /**
      * Send a message to the user
-     * @param messageType as message type enum
-     * @param message as string
+     * @param messageType message type enum
+     * @param message message as string
      */
     void sendMessage(MessageType messageType, String message);
 
     /**
      * Send an action bar message to the user
-     * @param messageType as message type enum
-     * @param message as string
+     * @param messageType message type enum
+     * @param message message as string
      */
     void sendActionBar(MessageType messageType, String message);
 
@@ -48,8 +48,8 @@ public interface User extends OfflineUser {
 
     /**
      * Kick the user from the server by staff member
-     * @param reason as string
-     * @param staffMember as user instance
+     * @param reason kick reason as string
+     * @param staffMember staff member as user instance
      */
     void kick(String reason, User staffMember);
 
