@@ -2,6 +2,7 @@ package de.cubevale.core.api.phone;
 
 import de.cubevale.core.api.phone.app.Call;
 import de.cubevale.core.api.phone.app.Message;
+import de.cubevale.core.api.phone.app.PhoneApp;
 import de.cubevale.core.api.user.User;
 
 import javax.annotation.CheckReturnValue;
@@ -49,6 +50,31 @@ public interface Phone {
     default Phone setActive(boolean active) {
         return this;
     }
+
+    /**
+     * Get a list of all installed applications
+     * @return
+     */
+    List<PhoneApp> getApps();
+
+    /**
+     * Install an application on the phone
+     * @param identifier
+     */
+    void installApp(String identifier);
+
+    /**
+     * Delete an application from the phone
+     * @param identifier
+     */
+    void deleteApp(String identifier);
+
+    /**
+     * Check if the application with identifier is installed
+     * @param identifier
+     * @return
+     */
+    boolean hasApp(String identifier);
 
     /**
      * Send a message to the phone messenger of this phone
@@ -123,6 +149,14 @@ public interface Phone {
      * @return
      */
     boolean isInCall();
+
+    /**
+     * Reload the phone data and replace the current phone-object
+     * @return
+     */
+    default Phone refresh() {
+        return this;
+    }
 
     void update();
 }

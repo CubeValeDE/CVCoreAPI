@@ -148,5 +148,13 @@ public interface BankAccount {
         return this;
     }
 
+    /**
+     * Reload the bank account data and replace the current bank account-object
+     * @return
+     */
+    default BankAccount refresh() {
+        return this;
+    }
+
     void update();
 }
