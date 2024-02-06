@@ -9,7 +9,7 @@ public @interface ModuleOptions {
     String name();
     String version();
     String[] authors();
-    String description();
+    String description() default "";
 
     int priority() default 0;
 }
