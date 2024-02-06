@@ -1,17 +1,17 @@
 package de.cubevale.core.api.events;
 
-import de.cubevale.core.api.user.User;
+import de.cubevale.core.api.user.OnlineUser;
 import de.cubevale.core.api.event.Event;
 
 public class UserJoinEvent extends Event {
 
-    private final User user;
+    private final OnlineUser user;
 
-    public UserJoinEvent(User user) {
+    public UserJoinEvent(OnlineUser user) {
         this.user = user;
     }
 
-    public User getUser() {
+    public OnlineUser getUser() {
         return user;
     }
 }
