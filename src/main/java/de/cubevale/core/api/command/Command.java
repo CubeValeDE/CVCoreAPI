@@ -1,6 +1,6 @@
 package de.cubevale.core.api.command;
 
-import de.cubevale.core.api.user.User;
+import de.cubevale.core.api.user.OnlineUser;
 
 import java.util.List;
 import java.util.Objects;
@@ -14,9 +14,9 @@ public abstract class Command {
                 getClass().getAnnotation(CommandOptions.class), "CommandOptions annotation is missing!");
     }
 
-    public abstract boolean onCommand(User sender, String[] args);
+    public abstract boolean onCommand(OnlineUser sender, String[] args);
 
-    public List<String> onTabComplete(User sender, String[] args) {
+    public List<String> onTabComplete(OnlineUser sender, String[] args) {
         // Tab complete logic
         return null;
     }
