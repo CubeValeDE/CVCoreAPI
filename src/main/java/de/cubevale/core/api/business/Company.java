@@ -1,36 +1,59 @@
 package de.cubevale.core.api.business;
 
+import de.cubevale.core.api.economy.BankAccount;
 import de.cubevale.core.api.user.User;
+
+import javax.annotation.CheckReturnValue;
 
 public interface Company {
 
     /**
      * Get the company id
-     * @return
+     * @return id as integer
      */
-    String getId();
+    int getId();
 
     /**
      * Get the company name
-     * @return
+     * @return company name as string
      */
     String getName();
 
     /**
      * Set the company name
-     * @param name
+     * @param name company name as string
+     * @return
      */
-    void setName(String name);
+    @CheckReturnValue
+    Company setName(String name);
 
     /**
      * Get the owner of the company
-     * @return
+     * @return company owner as user instance
      */
     User getOwner();
 
     /**
      * Set the owner of the company
      * @param user
+     * @return
      */
-    void setOwner(User user);
+    @CheckReturnValue
+    Company setOwner(User user);
+
+    /**
+     * Get the primary bank account of the company
+     * @return bank account instance
+     */
+    BankAccount getBankAccount();
+
+    /**
+     * Reload the company data and replace the current company-object
+     * @return
+     */
+    default Company refresh() {
+        return this;
+    }
+
+    void update();
 }
