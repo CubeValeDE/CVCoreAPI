@@ -7,7 +7,8 @@ import de.cubevale.core.api.economy.BankAccount;
 import de.cubevale.core.api.economy.BankAccountType;
 import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.phone.Phone;
-import de.cubevale.core.api.user.OfflineUser;
+import de.cubevale.core.api.phone.app.PhoneApp;
+import de.cubevale.core.api.user.OnlineUser;
 import de.cubevale.core.api.user.User;
 import de.cubevale.core.api.utils.ItemBuilder;
 import org.bukkit.Material;
@@ -17,6 +18,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.List;
 import java.util.UUID;
 
 public final class CubeVale {
@@ -39,16 +41,16 @@ public final class CubeVale {
         return core.getUser(name);
     }
 
-    public static OfflineUser getOfflineUser(int id) {
-        return core.getOfflineUser(id);
+    public static OnlineUser getOnlineUser(int id) {
+        return core.getOnlineUser(id);
     }
 
-    public static OfflineUser getOfflineUser(UUID uuid) {
-        return core.getOfflineUser(uuid);
+    public static OnlineUser getOnlineUser(UUID uuid) {
+        return core.getOnlineUser(uuid);
     }
 
-    public static OfflineUser getOfflineUser(String name) {
-        return core.getOfflineUser(name);
+    public static OnlineUser getOnlineUser(String name) {
+        return core.getOnlineUser(name);
     }
 
     public static Phone getPhone(int id) {
@@ -63,16 +65,24 @@ public final class CubeVale {
         return core.getPhone(user);
     }
 
+    public static void createPhone(User owner) {
+        core.createPhone(owner);
+    }
+
+    public static List<PhoneApp> getRegisteredApps() {
+        return core.getRegisteredApps();
+    }
+
+    public static void registerPhoneApp(PhoneApp phoneApp) {
+        core.registerPhoneApp(phoneApp);
+    }
+
     public static BankAccount getBankAccount(int id) {
         return core.getBankAccount(id);
     }
 
     public static BankAccount getBankAccount(User user) {
         return core.getBankAccount(user);
-    }
-
-    public static void createPhone(User owner) {
-        core.createPhone(owner);
     }
 
     public static void createBankAccount(User owner, BankAccountType accountType) {
@@ -83,12 +93,20 @@ public final class CubeVale {
         core.createBankAccount(owner);
     }
 
+    public static String getFormattedMoney(double money) {
+        return core.getFormattedMoney(money);
+    }
+
     public static Company getCompany(int id) {
         return core.getCompany(id);
     }
 
     public static void createCompany(String name, User owner) {
         core.createCompany(name, owner);
+    }
+
+    public static void sendTeamBroadcast(String message) {
+        core.sendTeamBroadcast(message);
     }
 
     public static String getServerDescription() {
