@@ -2,6 +2,7 @@ package de.cubevale.core.api.phone;
 
 import de.cubevale.core.api.phone.app.Call;
 
+import javax.annotation.CheckReturnValue;
 import java.util.List;
 
 public interface Hotline {
@@ -21,8 +22,12 @@ public interface Hotline {
     /**
      * Set the hotline number
      * @param number
+     * @return
      */
-    void setNumber(String number);
+    @CheckReturnValue
+    default Hotline setNumber(String number) {
+        return this;
+    }
 
     /**
      * Get the online phones linked to the hotline
@@ -33,14 +38,22 @@ public interface Hotline {
     /**
      * Link a phone to the hotline
      * @param phone
+     * @return
      */
-    void addPhone(Phone phone);
+    @CheckReturnValue
+    default Hotline addPhone(Phone phone) {
+        return this;
+    }
 
     /**
      * Unlink a phone from the hotline
      * @param phone
+     * @return
      */
-    void removePhone(Phone phone);
+    @CheckReturnValue
+    default Hotline removePhone(Phone phone) {
+        return this;
+    }
 
     /**
      * Get the hotline's incoming call
@@ -53,4 +66,14 @@ public interface Hotline {
      * @param call
      */
     void setCall(Call call);
+
+    /**
+     * Reload the hotline data and replace the current hotline-object
+     * @return
+     */
+    default Hotline refresh() {
+        return this;
+    }
+
+    void update();
 }
