@@ -32,6 +32,12 @@ public interface OnlineUser extends User {
     void teleport(Location location);
 
     /**
+     * Send a standard message without message type to the user
+     * @param message message as string
+     */
+    void sendMessage(String message);
+
+    /**
      * Send a message to the user
      * @param messageType message type enum
      * @param message message as string
