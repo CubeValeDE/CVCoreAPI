@@ -8,9 +8,13 @@ import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.command.Command;
 import de.cubevale.core.api.phone.Phone;
 import de.cubevale.core.api.phone.app.PhoneApp;
+import de.cubevale.core.api.region.Area;
+import de.cubevale.core.api.region.Region;
 import de.cubevale.core.api.user.OnlineUser;
 import de.cubevale.core.api.user.User;
 import de.cubevale.core.api.utils.ItemBuilder;
+import de.cubevale.core.api.utils.gui.InventoryMenu;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryType;
@@ -19,6 +23,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public interface Core {
@@ -29,17 +34,23 @@ public interface Core {
 
     User getUser(String name);
 
+    Set<User> getUsers();
+
     OnlineUser getOnlineUser(int id);
 
     OnlineUser getOnlineUser(UUID uuid);
 
     OnlineUser getOnlineUser(String name);
 
+    Set<OnlineUser> getOnlineUsers();
+
     Phone getPhone(int id);
 
     Phone getPhone(String number);
 
     Phone getPhone(User user);
+
+    Set<Phone> getPhones();
 
     void createPhone(User owner);
 
@@ -51,6 +62,8 @@ public interface Core {
 
     BankAccount getBankAccount(User user);
 
+    Set<BankAccount> getBankAccounts();
+
     void createBankAccount(User owner, BankAccountType accountType);
 
     void createBankAccount(Company owner);
@@ -61,7 +74,25 @@ public interface Core {
 
     void createCompany(String name, User owner);
 
+    Region getRegion(int id);
+
+    Region getRegion(Area area);
+
+    Set<Region> getRegions();
+
+    void createRegion(Area area, User owner);
+
+    void deleteRegion(int id);
+
+    Area getArea(Location minLocation, Location maxLocation);
+
+    Set<Area> getRegionAreas();
+
     void sendTeamBroadcast(String message);
+
+    String getTranslation(String locale, String placeholder);
+
+    String getTranslation(String locale, String placeholder, List<String> details);
 
     String getServerDescription();
 
@@ -82,6 +113,14 @@ public interface Core {
     Inventory createInventory(InventoryType inventoryType);
 
     Inventory createInventory(InventoryType inventoryType, String title);
+
+    InventoryMenu createInventoryMenu(int size);
+
+    InventoryMenu createInventoryMenu(int size, String title);
+
+    InventoryMenu createInventoryMenu(InventoryType inventoryType);
+
+    InventoryMenu createInventoryMenu(InventoryType inventoryType, String title);
 
     void registerCommand(Command command);
 
