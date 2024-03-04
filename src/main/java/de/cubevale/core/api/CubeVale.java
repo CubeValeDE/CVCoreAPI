@@ -8,9 +8,13 @@ import de.cubevale.core.api.economy.BankAccountType;
 import de.cubevale.core.api.event.EventListener;
 import de.cubevale.core.api.phone.Phone;
 import de.cubevale.core.api.phone.app.PhoneApp;
+import de.cubevale.core.api.region.Area;
+import de.cubevale.core.api.region.Region;
 import de.cubevale.core.api.user.OnlineUser;
 import de.cubevale.core.api.user.User;
 import de.cubevale.core.api.utils.ItemBuilder;
+import de.cubevale.core.api.utils.gui.InventoryMenu;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryType;
@@ -19,6 +23,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public final class CubeVale {
@@ -41,6 +46,10 @@ public final class CubeVale {
         return core.getUser(name);
     }
 
+    public static Set<User> getUsers() {
+        return core.getUsers();
+    }
+
     public static OnlineUser getOnlineUser(int id) {
         return core.getOnlineUser(id);
     }
@@ -53,6 +62,10 @@ public final class CubeVale {
         return core.getOnlineUser(name);
     }
 
+    public static Set<OnlineUser> getOnlineUsers() {
+        return core.getOnlineUsers();
+    }
+
     public static Phone getPhone(int id) {
         return core.getPhone(id);
     }
@@ -63,6 +76,10 @@ public final class CubeVale {
 
     public static Phone getPhone(User user) {
         return core.getPhone(user);
+    }
+
+    public static Set<Phone> getPhones() {
+        return core.getPhones();
     }
 
     public static void createPhone(User owner) {
@@ -85,6 +102,10 @@ public final class CubeVale {
         return core.getBankAccount(user);
     }
 
+    public static Set<BankAccount> getBankAccounts() {
+        return core.getBankAccounts();
+    }
+
     public static void createBankAccount(User owner, BankAccountType accountType) {
         core.createBankAccount(owner, accountType);
     }
@@ -105,8 +126,44 @@ public final class CubeVale {
         core.createCompany(name, owner);
     }
 
+    public static Region getRegion(int id) {
+        return core.getRegion(id);
+    }
+
+    public static Region getRegion(Area area) {
+        return core.getRegion(area);
+    }
+
+    public static Set<Region> getRegions() {
+        return core.getRegions();
+    }
+
+    public static void createRegion(Area area, User owner) {
+        core.createRegion(area, owner);
+    }
+
+    public static void deleteRegion(int id) {
+        core.deleteRegion(id);
+    }
+
+   public static Area getArea(Location minLocation, Location maxLocation) {
+        return core.getArea(minLocation, maxLocation);
+   }
+
+   public static Set<Area> getRegionAreas() {
+        return core.getRegionAreas();
+   }
+
     public static void sendTeamBroadcast(String message) {
         core.sendTeamBroadcast(message);
+    }
+
+    public static String getTranslation(String locale, String placeholder) {
+        return core.getTranslation(locale, placeholder);
+    }
+
+    public static String getTranslation(String locale, String placeholder, List<String> details) {
+        return core.getTranslation(locale, placeholder, details);
     }
 
     public static String getServerDescription() {
@@ -147,6 +204,22 @@ public final class CubeVale {
 
     public static Inventory createInventory(InventoryType inventoryType, String title) {
         return core.createInventory(inventoryType, title);
+    }
+
+    public static InventoryMenu createInventoryMenu(int size) {
+        return core.createInventoryMenu(size);
+    }
+
+    public static InventoryMenu createInventoryMenu(int size, String title) {
+        return core.createInventoryMenu(size, title);
+    }
+
+    public static InventoryMenu createInventoryMenu(InventoryType inventoryType) {
+        return core.createInventoryMenu(inventoryType);
+    }
+
+    public static InventoryMenu createInventoryMenu(InventoryType inventoryType, String title) {
+        return core.createInventoryMenu(inventoryType, title);
     }
 
     public static void registerCommand(Command command) {

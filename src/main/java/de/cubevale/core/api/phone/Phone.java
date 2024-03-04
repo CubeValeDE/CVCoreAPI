@@ -129,8 +129,12 @@ public interface Phone {
     /**
      * Set a call
      * @param call
+     * @return
      */
-    void setCall(Call call);
+    @CheckReturnValue
+    default Phone setCall(Call call) {
+        return this;
+    }
 
     /**
      * Start a call

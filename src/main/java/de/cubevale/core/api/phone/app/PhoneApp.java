@@ -1,5 +1,6 @@
 package de.cubevale.core.api.phone.app;
 
+import de.cubevale.core.api.user.OnlineUser;
 import de.cubevale.core.api.user.User;
 import org.bukkit.inventory.ItemStack;
 
@@ -14,7 +15,7 @@ public abstract class PhoneApp {
                 getClass().getAnnotation(PhoneAppOptions.class), "PhoneAppOptions annotation is missing!");
     }
 
-    public abstract void onExecute(User user);
+    public abstract void onExecute(OnlineUser user);
 
     public abstract ItemStack getAppIcon();
 

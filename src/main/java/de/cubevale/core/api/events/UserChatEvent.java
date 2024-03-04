@@ -1,7 +1,6 @@
 package de.cubevale.core.api.events;
 
 import de.cubevale.core.api.user.OnlineUser;
-import de.cubevale.core.api.user.User;
 import de.cubevale.core.api.event.Event;
 
 public class UserChatEvent extends Event {
@@ -9,7 +8,7 @@ public class UserChatEvent extends Event {
     private final OnlineUser user;
     private String format;
     private String message;
-    private boolean canceled;
+    private boolean cancelled;
 
     public UserChatEvent(OnlineUser user, String format, String message) {
         this.user = user;
@@ -17,7 +16,7 @@ public class UserChatEvent extends Event {
         this.message = message;
     }
 
-    public User getUser() {
+    public OnlineUser getUser() {
         return user;
     }
 
@@ -37,11 +36,11 @@ public class UserChatEvent extends Event {
         this.message = message;
     }
 
-    public boolean isCanceled() {
-        return canceled;
+    public boolean isCancelled() {
+        return cancelled;
     }
 
-    public void setCanceled(boolean canceled) {
-        this.canceled = canceled;
+    public void setCancelled(boolean cancelled) {
+        this.cancelled = cancelled;
     }
 }
