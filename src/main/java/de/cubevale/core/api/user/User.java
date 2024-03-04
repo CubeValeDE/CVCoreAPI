@@ -3,6 +3,7 @@ package de.cubevale.core.api.user;
 import de.cubevale.core.api.economy.BankAccount;
 import de.cubevale.core.api.phone.Phone;
 import de.cubevale.core.api.region.Region;
+import org.bukkit.OfflinePlayer;
 
 import javax.annotation.CheckReturnValue;
 import java.util.List;
@@ -34,11 +35,29 @@ public interface User {
      */
     OnlineUser getOnlineUser();
 
+    OfflinePlayer getOfflinePlayer();
+
     /**
      * Check if the user is online
      * @return online status
      */
     boolean isOnline();
+
+    /**
+     * Get the user's locale
+     * @return locale as string
+     */
+    String getLocale();
+
+    /**
+     * Set the user's locale
+     * @param locale locale as string
+     * @return
+     */
+    @CheckReturnValue
+    default User setLocale(String locale) {
+        return this;
+    }
 
     /**
      * Get the number of server logins
