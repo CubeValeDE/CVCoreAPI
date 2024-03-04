@@ -1,14 +1,14 @@
 package de.cubevale.core.api.events;
 
-import de.cubevale.core.api.user.User;
+import de.cubevale.core.api.user.OnlineUser;
 import de.cubevale.core.api.event.Event;
 import de.cubevale.core.api.phone.app.Call;
 
 public class PhoneCallEvent extends Event {
 
     private final Call call;
-    private final User caller;
-    private final User partner;
+    private final OnlineUser caller;
+    private final OnlineUser partner;
 
     public PhoneCallEvent(Call call) {
         this.call = call;
@@ -20,11 +20,11 @@ public class PhoneCallEvent extends Event {
         return call;
     }
 
-    public User getCaller() {
+    public OnlineUser getCaller() {
         return caller;
     }
 
-    public User getPartner() {
+    public OnlineUser getPartner() {
         return partner;
     }
 }
