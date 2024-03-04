@@ -1,6 +1,6 @@
 package de.cubevale.core.api.phone.app;
 
-import de.cubevale.core.api.user.User;
+import de.cubevale.core.api.user.OnlineUser;
 
 public interface Call {
 
@@ -8,13 +8,13 @@ public interface Call {
      * Get the caller
      * @return
      */
-    User getCaller();
+    OnlineUser getCaller();
 
     /**
      * Get the partner
      * @return
      */
-    User getPartner();
+    OnlineUser getPartner();
 
     /**
      * Check if the call is active
